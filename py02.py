@@ -1,4 +1,35 @@
-def find(n, data):
-    for x in data:
-        if x == n: return True
-    return False
+
+def hp(p, e):
+    if p <= 0:
+        return False
+    elif e <= 0:
+        return False
+    return True
+
+def main():
+
+    playerhp = 100
+    playerdef = 1
+    enemyhp = 100
+
+    while hp(playerhp, enemyhp):
+
+        print("enter atk or def")
+        a = input("your turn : ")
+        if (a == "atk"):
+            print('attack the enemy')
+            enemyhp -= 30
+        elif(a == "def"):
+            print("protect yourself")
+            playerdef -= 0.1
+        print("enemy's turn")
+        playerhp -= 20 * playerdef
+        print("your hp is ", playerhp)
+        print("enemy hp is ", enemyhp)
+        print("--------------------")
+
+    if(enemyhp > 0):
+        print("your defeat")
+    else:
+        print("your win")
+main()
